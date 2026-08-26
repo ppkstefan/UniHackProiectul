@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up | HustleWords</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #fff9f2;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffffcc;
+      padding: 20px 40px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar h1 {
+      font-size: 24px;
+      font-weight: 800;
+      color: #f44369;
+      margin: 0;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      margin-left: 20px;
+    }
+
+    .navbar a:hover {
+      color: #f44369;
+    }
+
+    .auth-container {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+      display: flex;
+      gap: 40px;
+      max-width: 1080px;
+      margin: 80px auto;
+      align-items: flex-start;
+    }
+
+    .auth-image {
+      width: 280px;
+      max-height: 320px;
+    }
+
+    .auth-form {
+      flex: 1;
+    }
+
+    h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      font-weight: 800;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .submit-btn {
+      background: #f44369;
+      color: white;
+      border: none;
+      padding: 14px;
+      width: 100%;
+      font-weight: 700;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-top: 20px;
+      font-size: 16px;
+    }
+
+    .submit-btn:hover {
+      background: #e5395f;
+    }
+
+    .auth-footer {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .auth-footer a {
+      color: #f44369;
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <h1>HustleWords</h1>
+    <div>
+      <a href="\myapp\UniHackProiectul\HTML\test_main.html">Home</a>
+      <a href="login.html">Log In</a>
+    </div>
+  </nav>
+
+  <div class="auth-container">
+    <img class="auth-image" src="https://cdn-icons-png.flaticon.com/512/3578/3578190.png" alt="Mascot"/>
+    <div class="auth-form">
+      <h2>Create an Account</h2>
+      <form action="signup.php" method="POST">
+        <div class="form-grid">
+            <div>
+                <label>First Name</label>
+                <input type="text" name="first_name" required />
+    
+                <label>Email</label>
+                <input type="email" name="email" required />
+    
+                <label>Password</label>
+                <input type="password" name="password" required />
+            </div>
+            <div>
+                <label>Last Name</label>
+                <input type="text" name="last_name" required />
+    
+                <label>Phone</label>
+                <input type="tel" name="phone" required />
+    
+                <label>Country & City</label>
+                <input type="text" name="country_city" placeholder="e.g. Germany, Berlin" required />
+            </div>
+        </div>
+        <button class="submit-btn" type="submit">Sign Up</button>
+    </form>
+      <div class="auth-footer">
+        Already have an account? <a href="login.html">Log In</a>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+</html>

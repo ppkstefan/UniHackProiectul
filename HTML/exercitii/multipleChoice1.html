@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 1-Hustle Words</title>
+    <link rel="stylesheet" href="\myapp\UniHackProiectul\HTML\exercitii/exercitii.css" />
+</head>
+<body>
+   
+<a href="\myapp\UniHackProiectul\HTML\exercitiiMain.html" class="back-button" onclick="goBack()">← Back</a>
+
+<h1>English Vocabulary Exercise 1</h1>
+
+<!-- Exercise 1 -->
+<div id="exercise1" class="exercise">
+    <div class="question">
+        <p>1. In a lot of <span>disadvantaged</span>/<span>developing</span>/<span>deprived</span> countries people do not have access to clean water.</p>
+        <div class="options">
+            <button class="option" onclick="selectOption(1, 'developing', this)">developing</button>
+            <button class="option" onclick="selectOption(1, 'disadvantaged', this)">disadvantaged</button>
+            <button class="option" onclick="selectOption(1, 'deprived', this)">deprived</button>
+        </div>
+    </div>
+    <div class="question">
+        <p>2. Air pollution is rising in a lot of the world’s cities at an <span>appalling</span>/<span>alarming</span>/<span>average</span> rate, causing worldwide concern.</p>
+        <div class="options">
+            <button class="option" onclick="selectOption(2, 'alarming', this)">alarming</button>
+            <button class="option" onclick="selectOption(2, 'appalling', this)">appalling</button>
+            <button class="option" onclick="selectOption(2, 'average', this)">average</button>
+        </div>
+    </div>
+    <div class="question">
+        <p>3. A lot of youth <span>obstruction</span>/<span>prosecution</span>/<span>detention</span> centres are overcrowded and lack proper rehabilitation services.</p>
+        <div class="options">
+            <button class="option" onclick="selectOption(3, 'detention', this)">detention</button>
+            <button class="option" onclick="selectOption(3, 'obstruction', this)">obstruction</button>
+            <button class="option" onclick="selectOption(3, 'prosecution', this)">prosecution</button>
+        </div>
+    </div>
+    <div class="question">
+        <p>4. The <span>alleged</span>/<span>leaked</span>/<span>incriminating</span> offender will appear in court tomorrow.</p>
+        <div class="options">
+            <button class="option" onclick="selectOption(4, 'alleged', this)">alleged</button>
+            <button class="option" onclick="selectOption(4, 'leaked', this)">leaked</button>
+            <button class="option" onclick="selectOption(4, 'incriminating', this)">incriminating</button>
+        </div>
+    </div>
+    <div class="question">
+        <p>5. Poverty is so bad in some areas that people have resorted to <span>scattering</span>/<span>rummaging</span>/<span>yielding</span> through the rubbish for food.</p>
+        <div class="options">
+            <button class="option" onclick="selectOption(5, 'rummaging', this)">rummaging</button>
+            <button class="option" onclick="selectOption(5, 'scattering', this)">scattering</button>
+            <button class="option" onclick="selectOption(5, 'yielding', this)">yielding</button>
+        </div>
+    </div>
+    <button id="submit" onclick="calculateScore(1)">Submit</button>
+    <button id="next" onclick="nextExercise(2)">Next</button>
+</div>
+
+<!-- Exercise 2 -->
+<div id="exercise2" class="exercise hidden">
+    <div class="question">
+        <p>6. We were so <span>elated</span>/<span>excited</span>/<span>devastated</span> when we heard the news.</p>
+        <div class="options">
+            <button class="option" onclick="selectOption(6, 'elated', this)">elated</button>
+            <button class="option" onclick="selectOption(6, 'excited', this)">excited</button>
+            <button class="option" onclick="selectOption(6, 'devastated', this)">devastated</button>
+        </div>
+    </div>
+    <div class="question">
+        <p>7. The <span>strength</span>/<span>foundation</span>/<span>root</span> of a tree is its trunk.</p>
+        <div class="options">
+            <button class="option" onclick="selectOption(7, 'foundation', this)">foundation</button>
+            <button class="option" onclick="selectOption(7, 'strength', this)">strength</button>
+            <button class="option" onclick="selectOption(7, 'root', this)">root</button>
+        </div>
+    </div>
+    <div class="question">
+        <p>8. She has a <span>distinct</span>/<span>comprehensible</span>/<span>constant</span> accent.</p>
+        <div class="options">
+            <button class="option" onclick="selectOption(8, 'distinct', this)">distinct</button>
+            <button class="option" onclick="selectOption(8, 'comprehensible', this)">comprehensible</button>
+            <button class="option" onclick="selectOption(8, 'constant', this)">constant</button>
+        </div>
+    </div>
+    <div class="question">
+        <p>9. The <span>generous</span>/<span>caring</span>/<span>grateful</span> woman donated a large sum of money to charity.</p>
+        <div class="options">
+            <button class="option" onclick="selectOption(9, 'generous', this)">generous</button>
+            <button class="option" onclick="selectOption(9, 'caring', this)">caring</button>
+            <button class="option" onclick="selectOption(9, 'grateful', this)">grateful</button>
+        </div>
+    </div>
+    <div class="question">
+        <p>10. The storm caused widespread <span>damage</span>/<span>destruction</span>/<span>trouble</span>.</p>
+        <div class="options">
+            <button class="option" onclick="selectOption(10, 'damage', this)">damage</button>
+            <button class="option" onclick="selectOption(10, 'destruction', this)">destruction</button>
+            <button class="option" onclick="selectOption(10, 'trouble', this)">trouble</button>
+        </div>
+    </div>
+    <button id="submit" onclick="calculateScore(2)">Submit</button>
+    <button id="next" onclick="nextExercise(3)">Next</button>
+</div>
+
+<!-- Exercise 3 -->
+<div id="exercise3" class="exercise hidden">
+    <div class="question">
+        <p>11. The painting was very <span>abstract</span>/<span>realistic</span>/<span>complex</span> and difficult to understand.</p>
+        <div class="options">
+            <button class="option" onclick="selectOption(11, 'abstract', this)">abstract</button>
+            <button class="option" onclick="selectOption(11, 'realistic', this)">realistic</button>
+            <button class="option" onclick="selectOption(11, 'complex', this)">complex</button>
+        </div>
+    </div>
+    <div class="question">
+        <p>12. He gave a very <span>vague</span>/<span>specific</span>/<span>ambiguous</span> answer to the question.</p>
+        <div class="options">
+            <button class="option" onclick="selectOption(12, 'vague', this)">vague</button>
+            <button class="option" onclick="selectOption(12, 'specific', this)">specific</button>
+            <button class="option" onclick="selectOption(12, 'ambiguous', this)">ambiguous</button>
+        </div>
+    </div>
+    <div class="question">
+        <p>13. The athlete’s performance was <span>outstanding</span>/<span>mediocre</span>/<span>insufficient</span> compared to others.</p>
+        <div class="options">
+            <button class="option" onclick="selectOption(13, 'outstanding', this)">outstanding</button>
+            <button class="option" onclick="selectOption(13, 'mediocre', this)">mediocre</button>
+            <button class="option" onclick="selectOption(13, 'insufficient', this)">insufficient</button>
+        </div>
+    </div>
+    <div class="question">
+        <p>14. The lecture was very <span>tedious</span>/<span>fascinating</span>/<span>brief</span> and hard to follow.</p>
+        <div class="options">
+            <button class="option" onclick="selectOption(14, 'tedious', this)">tedious</button>
+            <button class="option" onclick="selectOption(14, 'fascinating', this)">fascinating</button>
+            <button class="option" onclick="selectOption(14, 'brief', this)">brief</button>
+        </div>
+    </div>
+    <div class="question">
+        <p>15. His argument was <span>illogical</span>/<span>persuasive</span>/<span>informative</span> and failed to convince anyone.</p>
+        <div class="options">
+            <button class="option" onclick="selectOption(15, 'illogical', this)">illogical</button>
+            <button class="option" onclick="selectOption(15, 'persuasive', this)">persuasive</button>
+            <button class="option" onclick="selectOption(15, 'informative', this)">informative</button>
+        </div>
+    </div>
+    <button id="submit" onclick="calculateScore(3)">Submit</button>
+    <button id="next" onclick="nextExercise(4)">Next</button>
+</div>
+
+<!-- Exercise 4 -->
+<div id="exercise4" class="exercise hidden">
+    <div class="question">
+        <p>16. The doctor recommended a <span>balanced</span>/<span>intensive</span>/<span>excessive</span> diet to improve her health.</p>
+        <div class="options">
+            <button class="option" onclick="selectOption(16, 'balanced', this)">balanced</button>
+            <button class="option" onclick="selectOption(16, 'intensive', this)">intensive</button>
+            <button class="option" onclick="selectOption(16, 'excessive', this)">excessive</button>
+        </div>
+    </div>
+    <div class="question">
+        <p>17. They went on a <span>hazardous</span>/<span>safe</span>/<span>neutral</span> journey through the jungle.</p>
+        <div class="options">
+            <button class="option" onclick="selectOption(17, 'hazardous', this)">hazardous</button>
+            <button class="option" onclick="selectOption(17, 'safe', this)">safe</button>
+            <button class="option" onclick="selectOption(17, 'neutral', this)">neutral</button>
+        </div>
+    </div>
+    <div class="question">
+        <p>18. The project was <span>completed</span>/<span>started</span>/<span>delayed</span> due to unforeseen circumstances.</p>
+        <div class="options">
+            <button class="option" onclick="selectOption(18, 'delayed', this)">delayed</button>
+            <button class="option" onclick="selectOption(18, 'completed', this)">completed</button>
+            <button class="option" onclick="selectOption(18, 'started', this)">started</button>
+        </div>
+    </div>
+    <div class="question">
+        <p>19. The decision was made after <span>careful</span>/<span>reckless</span>/<span>indecisive</span> consideration.</p>
+        <div class="options">
+            <button class="option" onclick="selectOption(19, 'careful', this)">careful</button>
+            <button class="option" onclick="selectOption(19, 'reckless', this)">reckless</button>
+            <button class="option" onclick="selectOption(19, 'indecisive', this)">indecisive</button>
+        </div>
+    </div>
+    <div class="question">
+        <p>20. The report was <span>thorough</span>/<span>brief</span>/<span>incomplete</span> and covered all the details.</p>
+        <div class="options">
+            <button class="option" onclick="selectOption(20, 'thorough', this)">thorough</button>
+            <button class="option" onclick="selectOption(20, 'brief', this)">brief</button>
+            <button class="option" onclick="selectOption(20, 'incomplete', this)">incomplete</button>
+        </div>
+    </div>
+    <button id="submit" onclick="calculateScore(4)">Submit</button>
+    <button id="next" onclick="nextExercise(5)">Next</button>
+</div>
+
+<!-- Exercise 5 -->
+<div id="exercise5" class="exercise hidden">
+    <div class="question">
+        <p>21. The manager was <span>displeased</span>/<span>pleased</span>/<span>content</span> with the team's performance.</p>
+        <div class="options">
+            <button class="option" onclick="selectOption(21, 'displeased', this)">displeased</button>
+            <button class="option" onclick="selectOption(21, 'pleased', this)">pleased</button>
+            <button class="option" onclick="selectOption(21, 'content', this)">content</button>
+        </div>
+    </div>
+    <div class="question">
+        <p>22. He felt <span>grateful</span>/<span>regretful</span>/<span>resentful</span> after receiving the gift.</p>
+        <div class="options">
+            <button class="option" onclick="selectOption(22, 'grateful', this)">grateful</button>
+            <button class="option" onclick="selectOption(22, 'regretful', this)">regretful</button>
+            <button class="option" onclick="selectOption(22, 'resentful', this)">resentful</button>
+        </div>
+    </div>
+    <div class="question">
+        <p>23. The play was <span>hilarious</span>/<span>serious</span>/<span>boring</span> and made everyone laugh.</p>
+        <div class="options">
+            <button class="option" onclick="selectOption(23, 'hilarious', this)">hilarious</button>
+            <button class="option" onclick="selectOption(23, 'serious', this)">serious</button>
+            <button class="option" onclick="selectOption(23, 'boring', this)">boring</button>
+        </div>
+    </div>
+    <div class="question">
+        <p>24. She gave a <span>lengthy</span>/<span>short</span>/<span>moderate</span> explanation of the topic.</p>
+        <div class="options">
+            <button class="option" onclick="selectOption(24, 'lengthy', this)">lengthy</button>
+            <button class="option" onclick="selectOption(24, 'short', this)">short</button>
+            <button class="option" onclick="selectOption(24, 'moderate', this)">moderate</button>
+        </div>
+    </div>
+    <div class="question">
+        <p>25. The new law was seen as a <span>progressive</span>/<span>regressive</span>/<span>neutral</span> step forward.</p>
+        <div class="options">
+            <button class="option" onclick="selectOption(25, 'progressive', this)">progressive</button>
+            <button class="option" onclick="selectOption(25, 'regressive', this)">regressive</button>
+            <button class="option" onclick="selectOption(25, 'neutral', this)">neutral</button>
+        </div>
+    </div>
+    <button id="submit" onclick="calculateScore(5)">Submit</button>
+    <button id="showResultBtn" onclick="showFinalResults()">Show Results</button>
+
+</div>
+
+
+<div id="result"></div>
+
+
+<script>
+const answers = {
+    1: 'developing', 2: 'alarming', 3: 'detention', 4: 'alleged', 5: 'rummaging',
+    6: 'elated', 7: 'foundation', 8: 'distinct', 9: 'generous', 10: 'destruction',
+    11: 'abstract', 12: 'vague', 13: 'outstanding', 14: 'tedious', 15: 'illogical',
+    16: 'balanced', 17: 'hazardous', 18: 'delayed', 19: 'careful', 20: 'thorough',
+    21: 'displeased', 22: 'grateful', 23: 'hilarious', 24: 'lengthy', 25: 'progressive'
+};
+
+let exerciseScores = [0, 0, 0, 0, 0];
+let userAnswers = {};
+let exerciseCount = 1;
+
+function selectOption(questionNumber, selectedAnswer, button) {
+    let buttons = button.parentElement.children;
+    for (let btn of buttons) {
+        btn.classList.remove('blue');
+    }
+    button.classList.add('blue');
+    userAnswers[questionNumber] = selectedAnswer;
+}
+
+function calculateScore(exerciseNumber) {
+    let score = 0;
+
+    for (let i = (exerciseNumber - 1) * 5 + 1; i <= exerciseNumber * 5; i++) {
+        const selectedAnswer = userAnswers[i];
+        const buttons = document.querySelectorAll(`#exercise${exerciseNumber} .question:nth-child(${i - (exerciseNumber - 1) * 5}) .option`);
+
+        buttons.forEach(button => {
+            button.disabled = true;
+
+            if (selectedAnswer === answers[i]) {
+                if (button.textContent === selectedAnswer) {
+                    button.classList.add('green');
+                }
+            } else {
+                if (button.textContent === selectedAnswer) {
+                    button.classList.add('red');
+                } else if (button.textContent === answers[i]) {
+                    button.classList.add('green');
+                }
+            }
+        });
+
+        if (selectedAnswer === answers[i]) {
+            score++;
+        }
+    }
+
+    exerciseScores[exerciseNumber - 1] = score;
+
+    document.getElementById(`submit${exerciseNumber}`).disabled = true;
+    document.getElementById(`submit${exerciseNumber}`).classList.add('disabled');
+}
+
+function nextExercise(nextExerciseNumber) {
+    document.querySelector(`#exercise${exerciseCount}`).classList.add('hidden');
+    document.querySelector(`#exercise${nextExerciseNumber}`).classList.remove('hidden');
+    exerciseCount = nextExerciseNumber;
+}
+
+function showFinalResults() {
+    let totalScore = 0;
+    let totalQuestions = Object.keys(answers).length;
+    let resultText = "<h2>Final Results</h2>";
+
+    for (let exerciseNumber = 1; exerciseNumber <= 5; exerciseNumber++) {
+        const exerciseScore = exerciseScores[exerciseNumber - 1];
+        resultText += `<h3>Exercise ${exerciseNumber}</h3><ul>`;
+
+        for (let i = (exerciseNumber - 1) * 5 + 1; i <= exerciseNumber * 5; i++) {
+            const correctAnswer = answers[i];
+            const userAnswer = userAnswers[i] || "No Answer";
+            const isCorrect = correctAnswer === userAnswer;
+
+            resultText += `<li>Question ${i}:<br> 
+                Your answer: <strong>${userAnswer}</strong><br>
+                Correct answer: <strong>${correctAnswer}</strong> - 
+                ${isCorrect ? '<span style="color: green;">Correct</span>' : 
+                '<span style="color: red;">Incorrect</span>'}
+            </li>`;
+        }
+
+        resultText += `</ul><p>Score for Exercise ${exerciseNumber}: ${exerciseScore} / 5</p>`;
+        totalScore += exerciseScore;
+    }
+
+    const percentage = (totalScore / totalQuestions) * 100;
+    resultText += `<h3>Total Score: ${totalScore} / ${totalQuestions} (${percentage.toFixed(2)}%)</h3>`;
+
+  
+    const resultDiv = document.getElementById("result");
+    resultDiv.innerHTML = resultText;
+
+  
+    fetch("/myapp/UniHackProiectul/HTML/exercitii/update_score.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            correct_answers: totalScore,
+            total_attempts: totalQuestions
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+            resultDiv.innerHTML += `<p><strong>Updated average score:</strong> ${data.updated_score}% over ${data.attempts} attempt(s).</p>`;
+        } else {
+            resultDiv.innerHTML += `<p style="color:red;"><strong>Error:</strong> ${data.error}</p>`;
+        }
+    })
+    .catch(error => {
+        resultDiv.innerHTML += `<p style="color:red;"><strong>Network Error:</strong> ${error.message}</p>`;
+    });
+}
+
+
+fetch("/myapp/UniHackProiectul/PHP/get_user_status.php")
+    .then(res => res.json())
+    .then(data => {
+        if (!data.loggedIn) {
+            alert("You must be logged in to record your score.");
+            document.getElementById("showResultBtn").disabled = true;
+        }
+    })
+    .catch(error => {
+        console.error("Failed to fetch login status:", error);
+    });
+
+</script>
+
+
+
+
+
+
+
+<div class="tools-popup" id="toolsPopup">
+    <section class="sidebar-section">
+      <h2>Best Tools This Week</h2>
+      <div class="tool-card">
+        <h3>Translate Tool</h3>
+        <p>Instant translations and context-powered clarity.</p>
+        <a href="\myapp\UniHackProiectul\HTML\Synonimes.html">Try Now →</a>
+      </div>
+      <div class="tool-card">
+        <h3>Dictionary</h3>
+        <p>Definitions, examples, and synonyms at your fingertips.</p>
+        <a href="\myapp\UniHackProiectul\HTML\proiect%20Timisoara.html">Explore →</a>
+      </div>
+      <div class="tool-card">
+        <h3>AI Assistant</h3>
+        <p>Write smarter with grammar and style suggestions.</p>
+        <a href="\myapp\UniHackProiectul\HTML\chatAI.html">Use Assistant →</a>
+      </div>
+      <div class="tool-card">
+        <h3>Games</h3>
+        <p>Make learning fun with vocabulary challenges and more.</p>
+        <a href="\myapp\UniHackProiectul\HTML\wordle.html">Play →</a>
+      </div>
+    </section>
+  </div>
+  <div class="floating-mascot" id="mascotButton">
+    <img src="https://cdn-icons-png.flaticon.com/512/3578/3578190.png" alt="Translator Mascot">
+  </div>
+
+  <footer class="footer">
+    <p>Trusted by learners worldwide</p>
+
+    <div style="margin-top: 30px;">
+      <a href="\myapp\UniHackProiectul\HTML\footer\about.html" style="margin-right: 20px; color:#f44369; font-weight:600;">About Us</a>
+      <a href="\myapp\UniHackProiectul\HTML\footer\contact.html" style="color:#f44369; font-weight:600;">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    const mascotButton = document.getElementById('mascotButton');
+    const toolsPopup = document.getElementById('toolsPopup');
+
+    mascotButton.addEventListener('click', () => {
+      toolsPopup.style.display = toolsPopup.style.display === 'block' ? 'none' : 'block';
+    });
+  </script>
+
+</body>
+</html>

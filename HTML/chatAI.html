@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HustleWords - AI Assistant</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="\myapp\UniHackProiectul\CSS\test_main_design.css" />
+  <link rel="stylesheet" href="\myapp\UniHackProiectul\CSS\styleAI.css" />
+</head>
+<body>
+
+  
+  <header class="navbar">
+    <a href="\myapp\UniHackProiectul\HTML\test_main.html"><div class="logo">HustleWords</div></a>
+    <nav class="nav-links">
+      <a href="\myapp\UniHackProiectul\HTML\testcacamaca.html">Features</a>
+      <a href="\myapp\UniHackProiectul\HTML\proiect%20Timisoara.html">Dictionary</a>
+      <a href="\myapp\UniHackProiectul\HTML\Synonimes.html">Translate</a>
+      <a href="\myapp\UniHackProiectul\HTML\chatAI.html" class="active-link">AI Assistant</a>
+      <a href="\myapp\UniHackProiectul\HTML\wordle.html">WordGuessingGame</a>
+    </nav>
+    <div class="user-actions">
+      <span>Hi, Learner</span>
+      <a class="cta-btn" href="\myapp\UniHackProiectul\HTML\exercitiiMain.html">Start Learning</a>
+      <a class="cta-btn" id="login-button" href="\myapp\UniHackProiectul\HTML\login\signup\login.html">Log In</a>
+    </div>
+  </header>
+
+  
+  <main class="main-content">
+    <section class="chatbot-area">
+      <div class="chat-container">
+        <h1>Talk with HustleBot</h1>
+        <div class="chat-box" id="chat-box">
+          <div class="message ai-message">Hi! How can I help you today?</div>
+        </div>
+        <input type="text" id="user-input" placeholder="Type your message..." />
+        <button id="send-btn">Send</button>
+      </div>
+    </section>
+
+    <aside class="sidebar-section">
+      <h2>Try Other Tools</h2>
+      <div class="tool-card">
+        <h3>Translate</h3>
+        <p>Get quick translations with meaning & context.</p>
+        <a href="\myapp\UniHackProiectul\HTML\Synonimes.html">Try Now →</a>
+      </div>
+      <div class="tool-card">
+        <h3>Dictionary</h3>
+        <p>Find exact meanings and examples easily.</p>
+        <a href="\myapp\UniHackProiectul\HTML\proiect%20Timisoara.html">Explore →</a>
+      </div>
+      <div class="tool-card">
+        <h3>Play Word Guess</h3>
+        <p>Test vocabulary with this fun guessing game.</p>
+        <a href="\myapp\UniHackProiectul\HTML\wordle.html">Play →</a>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <p>Made with ❤️ by HustleWords</p>
+    <div>
+      <a href="\myapp\UniHackProiectul\HTML\footer\about.html" style="margin-right: 20px; color:#f44369; font-weight:600;">About Us</a>
+      <a href="\myapp\UniHackProiectul\HTML\footer\contact.html" style="color:#f44369; font-weight:600;">Contact</a>
+    </div>
+  </footer>
+
+  <script src="\myapp\UniHackProiectul\JavaScript\scriptAI.js"></script>
+  <script>
+          document.addEventListener("DOMContentLoaded", () => {
+        fetch("\\myapp\\UniHackProiectul\\HTML\\login\\signup\\get_user_status.php")
+          .then(response => response.json())
+          .then(data => {
+            if (data.loggedIn) {
+              const loginBtn = document.getElementById("login-button");
+              loginBtn.innerHTML = `
+                <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Profile" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;">
+                ${data.firstName}
+              `;
+              loginBtn.href = "\\myapp\\UniHackProiectul\\HTML\\profile.php"; 
+            }
+          })
+          .catch(err => console.error("Error checking session:", err));
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #fff9f2;
+  color: #1f1e42;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+.navbar {
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 24px;
+  color: #f44369;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #f44369;
+}
+
+.user-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.cta-btn {
+  background: #f44369;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: #d63555;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 40px;
+  padding: 60px 40px;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.hero-text h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+.hero-text p {
+  font-size: 18px;
+  margin-bottom: 25px;
+  color: #555;
+}
+
+.cta-main {
+  display: inline-block;
+  background: #f44369;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.cta-main:hover {
+  background: #d63555;
+}
+
+.hero-image {
+  max-width: 300px;
+  border-radius: 25px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.sidebar-section {
+  background: #fff5dd;
+  padding: 30px 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  height: fit-content;
+}
+
+.sidebar-section h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.tool-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+.tool-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.tool-card p {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.tool-card a {
+  color: #f44369;
+  font-weight: 600;
+}
+
+.footer {
+  grid-column: span 2;
+  margin-top: 60px;
+  padding: 40px;
+  background: #fff;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+}
+
+.footer p {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.footer .logos {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.footer .logos img {
+  height: 30px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.footer .logos img:hover {
+  opacity: 1;
+}

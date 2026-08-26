@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop Sentence Exercise 1</title>
+    <link rel="stylesheet" href="\myapp\UniHackProiectul\HTML\sentence/sentence.css">
+</head>
+<body>
+    <a href="\myapp\UniHackProiectul\HTML\exercitiiMain.html" class="back-button" onclick="goBack()">← Back</a>
+    <h1>Drag and Drop Sentence Exercise 1</h1>
+
+    <div id="options">
+        <div class="draggable" id="word1" draggable="true">leader</div>
+        <div class="draggable" id="word2" draggable="true">concert</div>
+        <div class="draggable" id="word3" draggable="true">pancakes</div>
+        <div class="draggable" id="word4" draggable="true">competitive</div>
+        <div class="draggable" id="word5" draggable="true">resources</div>
+        <div class="draggable" id="word6" draggable="true">clear</div>
+        <div class="draggable" id="word7" draggable="true">party</div>
+        <div class="draggable" id="word8" draggable="true">family</div>
+    </div>
+
+    <div id="exercise">
+        <div class="sentence">
+            <p>She is the <span class="blank" id="blank1"></span> of our team.</p>
+        </div>
+        <div class="sentence">
+            <p>They are going to the <span class="blank" id="blank2"></span> this weekend.</p>
+        </div>
+        <div class="sentence">
+            <p>I like to eat <span class="blank" id="blank3"></span> for breakfast.</p>
+        </div>
+        <div class="sentence">
+            <p>He is always <span class="blank" id="blank4"></span> when he plays soccer.</p>
+        </div>
+        <div class="sentence">
+            <p>We need more <span class="blank" id="blank5"></span> to finish the project.</p>
+        </div>
+        <div class="sentence">
+            <p>The sky is very <span class="blank" id="blank6"></span> today.</p>
+        </div>
+        <div class="sentence">
+            <p>They are having a <span class="blank" id="blank7"></span> tonight at their house.</p>
+        </div>
+        <div class="sentence">
+            <p>My <span class="blank" id="blank8"></span> is the best in the world.</p>
+        </div>
+    </div>
+
+    <div>
+        <button onclick="checkAnswers()">Submit</button>
+        <button id="reset" onclick="resetExercise()">Reset</button>
+        <button id="showResultBtn" onclick="showCorrectAnswers()">Show Result</button>
+        <p id="score">Your score: 0/8</p>
+    </div>
+
+    <script>
+        let score = 0;
+        let correctAnswers = {
+            blank1: "leader",
+            blank2: "concert",
+            blank3: "pancakes",
+            blank4: "competitive",
+            blank5: "resources",
+            blank6: "clear",
+            blank7: "party",
+            blank8: "family"
+        };
+
+        function shuffleWords() {
+            const words = Array.from(document.querySelectorAll('.draggable'));
+            for (let i = words.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                words[i].parentNode.insertBefore(words[j], words[i]);
+            }
+        }
+
+        window.onload = shuffleWords;
+
+        document.querySelectorAll('.draggable').forEach(item => {
+            item.addEventListener('dragstart', (e) => {
+                if (!item.classList.contains("locked")) {
+                    e.dataTransfer.setData('text', e.target.id);
+                }
+            });
+        });
+
+        document.querySelectorAll('.blank').forEach(blank => {
+            blank.addEventListener('dragover', (e) => {
+                e.preventDefault();
+            });
+
+            blank.addEventListener('drop', (e) => {
+                e.preventDefault();
+                const wordId = e.dataTransfer.getData('text');
+                const word = document.getElementById(wordId);
+                blank.innerHTML = word.innerHTML;
+                word.style.visibility = 'hidden';
+            });
+        });
+
+        function checkAnswers() {
+            score = 0;
+            document.querySelectorAll('.draggable').forEach(item => item.classList.add("locked"));
+            document.querySelectorAll('.blank').forEach(blank => {
+                const blankId = blank.id;
+                const word = blank.innerHTML.trim().toLowerCase();
+                const correctWord = correctAnswers[blankId].toLowerCase();
+                if (word === correctWord) {
+                    blank.classList.add('correct');
+                    blank.classList.remove('incorrect');
+                    score++;
+                } else {
+                    blank.classList.add('incorrect');
+                    blank.classList.remove('correct');
+                }
+            });
+            document.getElementById('score').innerText = `Your score: ${score}/8`;
+            document.getElementById('showResultBtn').style.display = 'inline';
+        }
+
+        function resetExercise() {
+            document.querySelectorAll('.blank').forEach(blank => {
+                blank.innerHTML = '';
+                blank.classList.remove('correct', 'incorrect');
+            });
+            document.querySelectorAll('.draggable').forEach(word => {
+                word.style.visibility = 'visible';
+                word.classList.remove("locked");
+            });
+            document.getElementById('score').innerText = `Your score: 0/8`;
+            score = 0;
+            shuffleWords();
+            document.getElementById('showResultBtn').style.display = 'none';
+        }
+
+        function showCorrectAnswers() {
+            document.querySelectorAll('.blank').forEach(blank => {
+                const blankId = blank.id;
+                blank.innerHTML = correctAnswers[blankId];
+                blank.classList.add('correct');
+                blank.classList.remove('incorrect');
+            });
+        }
+    </script>
+<div class="tools-popup" id="toolsPopup">
+    <section class="sidebar-section">
+      <h2>Best Tools This Week</h2>
+      <div class="tool-card">
+        <h3>Translate Tool</h3>
+        <p>Instant translations and context-powered clarity.</p>
+        <a href="\myapp\UniHackProiectul\HTML\Synonimes.html">Try Now →</a>
+      </div>
+      <div class="tool-card">
+        <h3>Dictionary</h3>
+        <p>Definitions, examples, and synonyms at your fingertips.</p>
+        <a href="\myapp\UniHackProiectul\HTML\proiect%20Timisoara.html">Explore →</a>
+      </div>
+      <div class="tool-card">
+        <h3>AI Assistant</h3>
+        <p>Write smarter with grammar and style suggestions.</p>
+        <a href="\myapp\UniHackProiectul\HTML\chatAI.html">Use Assistant →</a>
+      </div>
+      <div class="tool-card">
+        <h3>Games</h3>
+        <p>Make learning fun with vocabulary challenges and more.</p>
+        <a href="\myapp\UniHackProiectul\HTML\wordle.html">Play →</a>
+      </div>
+    </section>
+  </div>
+  <div class="floating-mascot" id="mascotButton">
+    <img src="https://cdn-icons-png.flaticon.com/512/3578/3578190.png" alt="Translator Mascot">
+  </div>
+
+  <footer class="footer">
+    <p>Trusted by learners worldwide</p>
+
+    <div style="margin-top: 30px;">
+      <a href="\myapp\UniHackProiectul\HTML\footer\about.html" style="margin-right: 20px; color:#f44369; font-weight:600;">About Us</a>
+      <a href="\myapp\UniHackProiectul\HTML\footer\contact.html" style="color:#f44369; font-weight:600;">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    const mascotButton = document.getElementById('mascotButton');
+    const toolsPopup = document.getElementById('toolsPopup');
+
+    mascotButton.addEventListener('click', () => {
+      toolsPopup.style.display = toolsPopup.style.display === 'block' ? 'none' : 'block';
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verb Form Exercise 5</title>
+    <link rel="stylesheet" href="\myapp\UniHackProiectul\HTML\exercitiiVerbe/verbe.css" />
+</head>
+<body>
+    <a href="\myapp\UniHackProiectul\HTML\exercitiiMain.html" class="back-button" onclick="goBack()">← Back</a>
+    <h1>Fill in the blanks with the correct form of the verb</h1>
+
+    <form id="exercise-form">
+        <p>1. They (build) __________ a new school in the neighborhood.</p>
+        <input type="text" id="question1" placeholder="Verb form">
+
+        <p>2. We (have) __________ a great time at the party last night.</p>
+        <input type="text" id="question2" placeholder="Verb form">
+
+        <p>3. She (study) __________ hard for her final exams.</p>
+        <input type="text" id="question3" placeholder="Verb form">
+
+        <p>4. I (not/understand) __________ the instructions at first.</p>
+        <input type="text" id="question4" placeholder="Verb form">
+
+        <p>5. He (finish) __________ his homework before dinner.</p>
+        <input type="text" id="question5" placeholder="Verb form">
+
+        <p>6. The teacher (explain) __________ the lesson right now.</p>
+        <input type="text" id="question6" placeholder="Verb form">
+
+        <p>7. We (watch) __________ a movie when the power went out.</p>
+        <input type="text" id="question7" placeholder="Verb form">
+
+        <p>8. I (try) __________ to fix the computer all morning.</p>
+        <input type="text" id="question8" placeholder="Verb form">
+
+        <p>9. My sister (play) __________ the guitar at the moment.</p>
+        <input type="text" id="question9" placeholder="Verb form">
+
+        <p>10. They (not/go) __________ to the concert last week.</p>
+        <input type="text" id="question10" placeholder="Verb form">
+
+        <button type="button" onclick="submitAnswers()">Submit</button>
+    </form>
+
+    <div class="score-container">
+        <div id="result">
+            <h2>Your Score: <span id="score">0</span>/10</h2>
+        </div>
+        <button id="restart-button" onclick="restartQuiz()">Restart</button>
+        <button id="show-results-button" onclick="showResults()" disabled>Show Results</button>
+    </div>
+
+    <script>
+        function submitAnswers() {
+            var score = 0;
+            var answers = [
+                {id: "question1", correctAnswer: "are building"},
+                {id: "question2", correctAnswer: "had"},
+                {id: "question3", correctAnswer: "is studying"},
+                {id: "question4", correctAnswer: "understood"},
+                {id: "question5", correctAnswer: "finished"},
+                {id: "question6", correctAnswer: "is explaining"},
+                {id: "question7", correctAnswer: "were watching"},
+                {id: "question8", correctAnswer: "have been trying"},
+                {id: "question9", correctAnswer: "is playing"},
+                {id: "question10", correctAnswer: "didn't go"}
+            ];
+
+            answers.forEach(function(item) {
+                var userAnswer = document.getElementById(item.id).value.toLowerCase().trim();
+                var inputField = document.getElementById(item.id);
+
+                
+                if (userAnswer === item.correctAnswer) {
+                    score++;
+                    inputField.classList.remove("incorrect");
+                    inputField.classList.add("correct"); 
+                } else {
+                    inputField.classList.add("incorrect"); 
+                }
+
+               
+                inputField.disabled = true;
+            });
+
+          
+            document.getElementById("show-results-button").disabled = false;
+
+          
+            document.getElementById("score").textContent = score;
+        }
+
+        function showResults() {
+            var answers = [
+                {id: "question1", correctAnswer: "are building"},
+                {id: "question2", correctAnswer: "had"},
+                {id: "question3", correctAnswer: "is studying"},
+                {id: "question4", correctAnswer: "understood"},
+                {id: "question5", correctAnswer: "finished"},
+                {id: "question6", correctAnswer: "is explaining"},
+                {id: "question7", correctAnswer: "were watching"},
+                {id: "question8", correctAnswer: "have been trying"},
+                {id: "question9", correctAnswer: "is playing"},
+                {id: "question10", correctAnswer: "didn't go"}
+            ];
+
+            
+            answers.forEach(function(item) {
+                var inputField = document.getElementById(item.id);
+                inputField.value = item.correctAnswer; 
+                inputField.disabled = true; 
+                inputField.classList.add("blue"); 
+            });
+        }
+
+        function restartQuiz() {
+            
+            var inputs = document.querySelectorAll("input[type='text']");
+            inputs.forEach(function(input) {
+                input.value = "";
+                input.classList.remove("incorrect", "correct", "blue");
+                input.disabled = false; 
+            });
+
+            
+            document.getElementById("score").textContent = "0";
+
+            
+            document.getElementById("show-results-button").disabled = true;
+        }
+    </script>
+    <div class="tools-popup" id="toolsPopup">
+        <section class="sidebar-section">
+          <h2>Best Tools This Week</h2>
+          <div class="tool-card">
+            <h3>Translate Tool</h3>
+            <p>Instant translations and context-powered clarity.</p>
+            <a href="\myapp\UniHackProiectul\HTML\Synonimes.html">Try Now →</a>
+          </div>
+          <div class="tool-card">
+            <h3>Dictionary</h3>
+            <p>Definitions, examples, and synonyms at your fingertips.</p>
+            <a href="\myapp\UniHackProiectul\HTML\proiect%20Timisoara.html">Explore →</a>
+          </div>
+          <div class="tool-card">
+            <h3>AI Assistant</h3>
+            <p>Write smarter with grammar and style suggestions.</p>
+            <a href="\myapp\UniHackProiectul\HTML\chatAI.html">Use Assistant →</a>
+          </div>
+          <div class="tool-card">
+            <h3>Games</h3>
+            <p>Make learning fun with vocabulary challenges and more.</p>
+            <a href="\myapp\UniHackProiectul\HTML\wordle.html">Play →</a>
+          </div>
+        </section>
+      </div>
+      <div class="floating-mascot" id="mascotButton">
+        <img src="https://cdn-icons-png.flaticon.com/512/3578/3578190.png" alt="Translator Mascot">
+      </div>
+    
+      <footer class="footer">
+        <p>Trusted by learners worldwide</p>
+    
+        <div style="margin-top: 30px;">
+          <a href="\myapp\UniHackProiectul\HTML\footer\about.html" style="margin-right: 20px; color:#f44369; font-weight:600;">About Us</a>
+          <a href="\myapp\UniHackProiectul\HTML\footer\contact.html" style="color:#f44369; font-weight:600;">Contact</a>
+        </div>
+      </footer>
+    
+      <script>
+        const mascotButton = document.getElementById('mascotButton');
+        const toolsPopup = document.getElementById('toolsPopup');
+    
+        mascotButton.addEventListener('click', () => {
+          toolsPopup.style.display = toolsPopup.style.display === 'block' ? 'none' : 'block';
+        });
+      </script>
+</body>
+</html>

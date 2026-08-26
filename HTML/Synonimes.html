@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HustleWords Translate</title>
+  
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="\myapp\UniHackProiectul\CSS\test_main_design.css" />
+  <link rel="stylesheet" href="\myapp\UniHackProiectul\CSS\translateStyle.css" />
+</head>
+<body>
+
+  
+  <header class="navbar">
+    <a href="\myapp\UniHackProiectul\HTML\test_main.html"><div class="logo">HustleWords</div></a>
+    <nav class="nav-links">
+      <a href="\myapp\UniHackProiectul\HTML\testcacamaca.html">Features</a>
+      <a href="\myapp\UniHackProiectul\HTML\proiect%20Timisoara.html">Dictionary</a>
+      <a href="\myapp\UniHackProiectul\HTML\Synonimes.html">Translate</a>
+      <a href="\myapp\UniHackProiectul\HTML\chatAI.html">AI Assistant</a>
+      <a href="\myapp\UniHackProiectul\HTML\wordle.html">WordGuessingGame</a>
+    </nav>
+    <div class="user-actions">
+      <span>Hi, Learner</span>
+      <a class="cta-btn" href="\myapp\UniHackProiectul\HTML\exercitiiMain.html">Start Learning</a>
+      <a class="cta-btn" id="login-button" href="\myapp\UniHackProiectul\HTML\login\signup\login.html">Log In</a>
+    </div>
+  </header>
+
+ 
+  <main class="main-section">
+    <div class="translate-container">
+      <h1>Translate Tool</h1>
+      <textarea id="textInput" placeholder="Enter text to translate..." rows="5"></textarea>
+
+      <div class="language-selector">
+        <select id="sourceLanguage">
+          <option value="ar">Arabic</option>
+          <option value="de">German</option>
+          <option value="en" selected>English</option>
+          <option value="es">Spanish</option>
+          <option value="fr">French</option>
+          <option value="hi">Hindi</option>
+          <option value="it">Italian</option>
+          <option value="ko">Korean</option>
+          <option value="ja">Japanese</option>
+          <option value="pl">Polish</option>
+          <option value="pt">Portuguese</option>
+          <option value="ro">Romanian</option>
+          <option value="ru">Russian</option>
+          <option value="sv">Swedish</option>
+          <option value="tr">Turkish</option>
+          <option value="zh">Chinese (Simplified)</option>
+        </select>
+
+        
+
+        <select id="targetLanguage">
+          <option value="ar">Arabic</option>
+          <option value="de">German</option>
+          <option value="en">English</option>
+          <option value="es">Spanish</option>
+          <option value="fr">French</option>
+          <option value="hi">Hindi</option>
+          <option value="it">Italian</option>
+          <option value="ko">Korean</option>
+          <option value="ja">Japanese</option>
+          <option value="pl">Polish</option>
+          <option value="pt">Portuguese</option>
+          <option value="ro" selected>Romanian</option>
+          <option value="ru">Russian</option>
+          <option value="sv">Swedish</option>
+          <option value="tr">Turkish</option>
+          <option value="zh">Chinese (Simplified)</option>
+        </select>
+      </div>
+
+      <div id="translationResult">Your translated text will appear here...</div>
+    </div>
+  </main>
+
+  
+  <div class="tools-popup" id="toolsPopup">
+    <section class="sidebar-section">
+      <h2>Best Tools This Week</h2>
+      <div class="tool-card">
+        <h3>Translate Tool</h3>
+        <p>Instant translations and context-powered clarity.</p>
+        <a href="\myapp\UniHackProiectul\HTML\Synonimes.html">Try Now →</a>
+      </div>
+      <div class="tool-card">
+        <h3>Dictionary</h3>
+        <p>Definitions, examples, and synonyms at your fingertips.</p>
+        <a href="\myapp\UniHackProiectul\HTML\proiect%20Timisoara.html">Explore →</a>
+      </div>
+      <div class="tool-card">
+        <h3>AI Assistant</h3>
+        <p>Write smarter with grammar and style suggestions.</p>
+        <a href="\myapp\UniHackProiectul\HTML\chatAI.html">Use Assistant →</a>
+      </div>
+      <div class="tool-card">
+        <h3>Games</h3>
+        <p>Make learning fun with vocabulary challenges and more.</p>
+        <a href="\myapp\UniHackProiectul\HTML\wordle.html">Play →</a>
+      </div>
+    </section>
+  </div>
+
+  
+  <div class="floating-mascot" id="mascotButton">
+    <img src="https://cdn-icons-png.flaticon.com/512/3578/3578190.png" alt="Translator Mascot">
+  </div>
+
+
+
+  <footer class="footer">
+    <p>Made with ❤️ by HustleWords</p>
+    <div>
+      <a href="\myapp\UniHackProiectul\HTML\footer/about.html" style="margin-right: 20px; color:#f44369; font-weight:600;">About Us</a>
+      <a href="\myapp\UniHackProiectul\HTML\footer\contact.html" style="color:#f44369; font-weight:600;">Contact</a>
+    </div>
+  </footer>
+  
+  <script src="\myapp\UniHackProiectul\JavaScript\translateScript.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch("\\myapp\\UniHackProiectul\\HTML\\login\\signup\\get_user_status.php")
+        .then(response => response.json())
+        .then(data => {
+          if (data.loggedIn) {
+            const loginBtn = document.getElementById("login-button");
+            loginBtn.innerHTML = `
+              <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Profile" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;">
+              ${data.firstName}
+            `;
+            loginBtn.href = "\\myapp\\UniHackProiectul\\HTML\\profile.php"; 
+          }
+        })
+        .catch(err => console.error("Error checking session:", err));
+    });
+  </script>
+</body>
+</html>
